@@ -453,6 +453,25 @@ p, li, a, strong, span, button{
     display: block;
   }
 }
+.custom-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.5);
+  background: linear-gradient(90deg, #0056b3, #003f7f);
+}
+
 
 /*--------------------------------------------------------------
 # Global Footer
