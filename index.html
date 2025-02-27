@@ -35,35 +35,176 @@
     />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
+    <!-- Custom CSS Overrides -->
+    <style>
+      /* Global Styles */
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: #f7f7f7;
+        color: #333;
+        line-height: 1.6;
+      }
+      .container,
+      .container-fluid {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      /* Header */
+      .header {
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 10px 0;
+      }
+      .header .sitename {
+        margin-left: 10px;
+        font-size: 24px;
+        color: #333;
+      }
+      .navmenu ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding-left: 0;
+      }
+      .navmenu ul li a {
+        color: #333;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .navmenu ul li a:hover,
+      .navmenu ul li a.active {
+        color: #3498db;
+      }
+      /* Section Titles */
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 20px 0;
+      }
+      .section-title h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .section-title p {
+        font-size: 16px;
+        color: #666;
+      }
+      /* Hero Section */
+      .hero {
+        position: relative;
+        text-align: center;
+        color: #fff;
+      }
+      .hero img {
+        width: 100%;
+        height: auto;
+        filter: brightness(60%);
+      }
+      .hero .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      /* Cards & Items */
+      .project-card,
+      .service-item,
+      .skill-card,
+      .resume-item,
+      .info-item {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      /* Footer */
+      footer.footer {
+        background: #333;
+        color: #fff;
+        padding: 40px 0;
+      }
+      footer.footer .sitename {
+        color: #fff;
+      }
+      footer.footer a {
+        color: #3498db;
+      }
+      .social-links a {
+        color: #fff;
+        font-size: 18px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+      .social-links a:hover {
+        color: #3498db;
+      }
+      .scroll-top {
+        background: #3498db;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Contact Form */
+      .php-email-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+      }
+      .php-email-form .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #d1d1d1;
+        transition: border-color 0.3s ease;
+      }
+      .php-email-form .form-control:focus {
+        border-color: #3498db;
+      }
+      .php-email-form button[type="submit"] {
+        background: linear-gradient(135deg, #3498db, #6c5ce7);
+        border: none;
+        padding: 12px 24px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      .php-email-form button[type="submit"]:hover {
+        transform: scale(1.05);
+      }
+    </style>
+
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-
-    <!-- ====================================================
-  * Template Name: Portfolio
-  * Updated: July 29 2024 with Bootstrap v5.3.3
-  * Author: Himanshu Dixit
-  ======================================================== -->
   </head>
 
   <body class="index-page">
+    <!-- Header -->
     <header id="header" class="header d-flex align-items-center sticky-top">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      >
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          
-          <img src="assets/img/logo.png" alt="">
+          <img src="assets/img/logo.png" alt="Logo" />
           <h1 class="sitename">PortFolio</h1>
         </a>
-
         <nav id="navmenu" class="navmenu">
           <ul>
             <li>
-              <a href="#hero" class="active">Home<br /></a>
+              <a href="#hero" class="active">Home</a>
             </li>
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Projects</a></li>
-          
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -71,382 +212,230 @@
       </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main">
       <!-- Hero Section -->
       <section id="hero" class="hero section dark-background">
-        <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in" />
-
-        <div
-          class="container d-flex flex-column align-items-center justify-content-center text-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
+        <img src="assets/img/hero-img.jpg" alt="Hero Image" data-aos="fade-in" />
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
           <h2>I am Himanshu Dixit</h2>
           <p>
-            <span
-              class="typed"
-              data-typed-items="DataScientist,CloudEngineer,MERN Stack Developer"
-            ></span>
+            <span class="typed" data-typed-items="MERN-Stack Developer,DataScientist,CloudEngineer"></span>
           </p>
         </div>
       </section>
       <!-- /Hero Section -->
-
-<!-- About Section -->
+       <!-- About Section -->
 <section id="about" class="about section">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="row gy-5 align-items-center">
-      <!-- Profile Image and Info -->
-      <div class="col-lg-6">
-        <div class="row gy-4 align-items-center">
-          <div class="col-lg-5 text-center">
-            <img src="assets/img/profile-img.jpg" class="img-fluid rounded-circle" alt="Profile Image" />
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <div class="row justify-content-between gy-4">
+          <div class="col-lg-5">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Profile" />
           </div>
-          <div class="col-lg-7">
-            <div class="about-info">
-              <h4>Himanshu Dixit</h4>
-              <p class="text-muted">Data Scientist</p>
-              <ul class="list-unstyled">
-                <li><strong>Email:</strong> himanshudixit2406@gmail.com</li>
-                <li><strong>Phone:</strong> +917390922922</li>
+          <div class="col-lg-7 about-info">
+            <p><strong>Name: </strong> <span>Himanshu Dixit</span></p>
+            <p><strong>Profile: </strong> <span>Full-Stack Developer</span></p>
+            <p><strong>Email: </strong> <span>himanshudixit2406@gmail.com</span></p>
+            <p><strong>Phone: </strong> <span>+91 7390922922</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="about-me">
+          <h4>About me</h4>
+          <p>
+            I am a Computer Science and Engineering student at VIT specializing in Data Science, with a strong foundation in full-stack development, API design, and cloud infrastructure.
+          </p>
+          <p>
+            My professional experience includes a Data Science Internship at FIFTHGEN TECH SOLUTION LLP—where I enhanced model performance and optimized data pipelines—and serving as Technical Head at IEEE - SSIT, VIT Chapter.
+          </p>
+          <p>
+            I have developed innovative projects, from an AI-powered skin condition analysis system to a financial edtech platform, and I am passionate about leveraging technology to create impactful, scalable solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /About Section -->
+
+
+      <!-- Technical Skills Section -->
+      <section id="skills" class="skills section">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Technical Arsenal</h2>
+            <p>Mastering modern tools to build impactful solutions</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 skill-category">
+              <div class="skill-card">
+                <h4><i class="bi bi-cpu"></i> Languages</h4>
+                <ul>
+                  <li>Python <span class="float-end">90%</span></li>
+                  <li>JavaScript <span class="float-end">85%</span></li>
+                  <li>Java <span class="float-end">80%</span></li>
+                  <li>C/C++ <span class="float-end">85%</span></li>
+                  <li>SQL <span class="float-end">90%</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 skill-category">
+              <div class="skill-card">
+                <h4><i class="bi bi-braces"></i> Frontend</h4>
+                <ul>
+                  <li>React.js <span class="float-end">90%</span></li>
+                  <li>Next.js <span class="float-end">85%</span></li>
+                  <li>HTML5 <span class="float-end">95%</span></li>
+                  <li>CSS3/Sass <span class="float-end">90%</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 skill-category">
+              <div class="skill-card">
+                <h4><i class="bi bi-server"></i> Backend</h4>
+                <ul>
+                  <li>Node.js <span class="float-end">88%</span></li>
+                  <li>Express.js <span class="float-end">90%</span></li>
+                  <li>Python Flask <span class="float-end">85%</span></li>
+                  <li>Golang <span class="float-end">75%</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Technical Skills Section -->
+
+      <!-- Experience Section -->
+      <section id="experience" class="experience section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Professional Journey</h2>
+            <p>Transforming ideas into measurable impact</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Data Science Intern</h4>
+              <h5>FIFTHGEN TECH SOLUTION LLP | April 2024 – October 2024</h5>
+              <ul>
+                <li>Boosted prediction accuracy by 15% through ensemble modeling</li>
+                <li>Automated ETL pipelines reducing processing time by 30%</li>
+                <li>Designed interactive dashboards for executive decision-making</li>
+                <li>Implemented ML-powered forecasting for inventory management</li>
               </ul>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      <!-- /Experience Section -->
 
-<!-- About Me Description -->
-<div class="col-lg-6">
-  <div class="about-me">
-    <h3 class="mb-4">About Me</h3>
-    <p>
-      I am a Computer Science student at Vellore Institute of Technology with expertise in Python, Java, C/C++, and SQL. I specialize in Data Science, Machine Learning, and Backend Development, leveraging tools like TensorFlow, PyTorch, NumPy, and Pandas.
-    </p>
-    <p>
-      My skills include feature selection, exploratory data analysis (EDA), and building machine learning and deep learning models. I am proficient in tools like Git, VS Code, and Jupyter Notebook, enabling efficient collaboration and innovation.
-    </p>
-    <p>
-      Passionate about solving real-world problems, I combine technical expertise with creativity to excel in cloud infrastructure and modern technologies.
-    </p>
-  </div>
-</div>
-
-
-    <!-- Skills Section -->
-    <div class="skills-content skills-animation mt-5">
-      <h3>Skills</h3>
-      <div class="row gy-4">
-        <!-- Left Column -->
-        <div class="col-md-6">
-          <div class="progress">
-            <span class="skill">
-              <span>Machine Learning</span> <i class="val">85%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="85"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 85%; background: linear-gradient(90deg, #00c6ff, #0072ff);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>Deep Learning</span> <i class="val">80%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="80"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 80%; background: linear-gradient(90deg, #00c6ff, #0072ff);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>HTML</span> <i class="val">100%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="100"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 100%; background: linear-gradient(90deg, #00c6ff, #0072ff);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>CSS</span> <i class="val">90%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="90"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 90%; background: linear-gradient(90deg, #00c6ff, #0072ff);"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="col-md-6">
-          <div class="progress">
-            <span class="skill">
-              <span>MongoDB</span> <i class="val">80%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="80"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 80%; background: linear-gradient(90deg, #ff7e5f, #feb47b);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>React</span> <i class="val">85%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="85"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 85%; background: linear-gradient(90deg, #ff7e5f, #feb47b);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>Node.js</span> <i class="val">75%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 75%; background: linear-gradient(90deg, #ff7e5f, #feb47b);"
-              ></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">
-              <span>AWS Cloud Practitioner</span> <i class="val">75%</i>
-            </span>
-            <div class="progress-bar-wrap">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="width: 75%; background: linear-gradient(90deg, #ff7e5f, #feb47b);"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- /About Section -->
-
-<!-- Resume Section -->
-<section id="resume" class="resume section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Resume</h2>
-    <p>
-      "Proactive Computer Science student with cloud computing expertise, eager to drive innovation and deliver excellence."
-    </p>
-  </div>
-  <!-- End Section Title -->
-
-  <div class="container">
-    <div class="row gy-5">
-      <!-- Left Column -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <!-- Education Section -->
-        <h3 class="resume-title">Education</h3>
-        <div class="resume-item pb-0">
-          <h4>Vellore Institute of Technology</h4>
-          <p class="text-muted">Bachelor of Technology in Computer Science</p>
-          <p><strong>CGPA:</strong> 8.04</p>
-          <p><strong>Location:</strong> Vellore, Tamil Nadu</p>
-          <p><strong>Duration:</strong> Sep 2021 - Current</p>
-          <hr>
-          <h4>Christ Convent School</h4>
-          <p class="text-muted">Senior Secondary (CBSE), 2020</p>
-          <h4>Christ Convent School</h4>
-          <p class="text-muted">Secondary (CBSE), 2018</p>
-        </div>
-        <!-- End Education Section -->
-
-        <!-- Internships Section -->
-        <h3 class="resume-title mt-5">Internships/Externships</h3>
-        <div class="resume-item">
-          <h4>Amazon Web Services (AWS)</h4>
-          <p class="text-muted">Amazon Cloud Practitioner</p>
-          <p><strong>Duration:</strong> Aug 2023 - Nov 2023 (Online)</p>
+      <!-- Resume Section -->
+      <section id="resume" class="resume section">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Resume</h2>
           <p>
-            <a href="https://www.credly.com/badges/f3ec9008-7225-47d3-845d-0d105b85f83b/public_url" target="_blank">Certificate Link</a>
+            "Proactive Computer Science student with cloud computing expertise, eager to drive innovation and deliver excellence."
           </p>
-          <ul>
-            <li>Explored concepts like elasticity, scalability, reliability, and compliance frameworks.</li>
-            <li>Hands-on experience with AWS services such as EC2, S3, and RDS.</li>
-          </ul>
         </div>
-        <div class="resume-item">
-          <h4>Google Cloud Digital Leader (CDL)</h4>
-          <p class="text-muted">Google Cloud Platform (GCP)</p>
-          <p><strong>Duration:</strong> Sep 2023 - Dec 2023 (Online)</p>
-          <p>
-            <a href="https://www.credential.net/0b231b1e-56d1-45dc-84b9-a8496e3a4866" target="_blank">Certificate Link</a> |
-            <a href="https://www.cloudskillsboost.google/public_profiles/a792ab45-d7e9-45b1-8d97-2fefb2ee6277" target="_blank">Public Profile</a>
-          </p>
-          <ul>
-            <li>Hands-on experience with services like Kubernetes, TensorFlow, and BigQuery.</li>
-          </ul>
-        </div>
-      </div>
-      <!-- End Left Column -->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item pb-0">
+                <h3>Vellore Institute of Technology (Under Graduation)</h3>
+                <p>Computer Science with 8.04 CGPA, Vellore, Tamil Nadu</p>
+                <p>Sep 2021 - current</p>
+                <h3>Christ Convent School (Senior Secondary)</h3>
+                <p>Central Board of Secondary Education (CBSE), 2020</p>
+                <h3>Christ Convent School (Secondary)</h3>
+                <p>Central Board of Secondary Education (CBSE), 2018</p>
+              </div>
 
-      <!-- Right Column -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <!-- Projects Section -->
-        <h3 class="resume-title">Projects</h3>
-        <div class="resume-item">
-          <h4>Food-Delivery-Website</h4>
-          <p>
-            <a href="https://github.com/himanshudixit2002/Food-Del" target="_blank">Repository Link</a> | 
-            <a href="https://food-del-frontend-supd.onrender.com/" target="_blank">Deployed Link</a>
-          </p>
-          <ul>
-            <li>Developed a food delivery website using HTML, CSS, and JavaScript for the frontend.</li>
-            <li>Implemented features for order tracking, payment processing, and item management.</li>
-          </ul>
-        </div>
+              <h3 class="resume-title">Internships/Externships:</h3>
+              <div class="resume-item">
+                <h4>Amazon Web Services (AWS) | Amazon Cloud Practitioner</h4>
+                <h5>Aug 2023 - Nov 2023 (Online)</h5>
+                <p>
+                  <a href="https://www.credly.com/badges/f3ec9008-7225-47d3-845d-0d105b85f83b/public_url" target="_blank">Certificate Link</a>
+                </p>
+                <p>
+                  Explored cloud computing concepts like elasticity, scalability, and reliability. Gained hands-on experience with AWS services such as EC2, S3, and RDS.
+                </p>
+              </div>
 
-        <div class="resume-item">
-          <h4>Gym Website</h4>
-          <p>
-            <a href="https://github.com/himanshudixit2002/GymWebsite/tree/main" target="_blank">Repository Link</a> | 
-            <a href="https://himanshudixit2002.github.io/GymWebsite/" target="_blank">Deployed Link</a>
-          </p>
-          <ul>
-            <li>Built a gym website with personalized training programs and dynamic form submissions.</li>
-            <li>Features include BMI calculators, workout plans, and email support.</li>
-          </ul>
-        </div>
+              <div class="resume-item">
+                <h4>Google Cloud Digital Leader (CDL)</h4>
+                <h5>Sep 2023 - Dec 2023 (Online)</h5>
+                <p>
+                  <a href="https://www.credential.net/0b231b1e-56d1-45dc-84b9-a8496e3a4866" target="_blank">Certificate Link</a> | 
+                  <a href="https://www.cloudskillsboost.google/public_profiles/a792ab45-d7e9-45b1-8d97-2fefb2ee6277" target="_blank">Public Profile Link</a>
+                </p>
+                <p>
+                  Gained hands-on experience with Google Cloud services including Cloud Shell, Kubernetes, Compute Engine, and BigQuery.
+                </p>
+              </div>
+            </div>
 
-        <div class="resume-item">
-          <h4>Smart Classroom</h4>
-          <p>
-            <a href="https://github.com/himanshudixit2002/AI-Powered-Smart-Classroom" target="_blank">Repository Link</a>
-          </p>
-          <ul>
-            <li>Developed a smart classroom project integrating IoT devices for real-time monitoring and automation.</li>
-            <li>Implemented features like automated lighting, temperature control, and attendance tracking.</li>
-          </ul>
-          <a href="https://drive.google.com/file/d/1o-A9g8LcMwbTaGBNlWGO2pkTZeK4dYf3/view?usp=drive_link" 
-             target="_blank" 
-             class="custom-btn">
-            Watch Project Video
-          </a>
-        </div>
-        
-        
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="resume-title">Projects</h3>
+              <div class="resume-item">
+                <h4>Food-Delivery-Website</h4>
+                <p>
+                  <a href="https://github.com/himanshudixit2002/Food-Del" target="_blank">Repository Link</a> | 
+                  <a href="https://food-del-frontend-supd.onrender.com/" target="_blank">Deployed Link</a>
+                </p>
+                <ul>
+                  <li>Developed a food delivery website using HTML, CSS, and JavaScript for the frontend and MongoDB, Express.js, and Node.js for the backend.</li>
+                  <li>Implemented user and admin pages with features for order tracking, payment processing, and item management.</li>
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>Gym Website</h4>
+                <p>
+                  <a href="https://github.com/himanshudixit2002/GymWebsite/tree/main" target="_blank">Repository Link</a> | 
+                  <a href="https://himanshudixit2002.github.io/GymWebsite/" target="_blank">Deployed Link</a>
+                </p>
+                <ul>
+                  <li>Developed a comprehensive gym website using HTML, CSS, JavaScript, and jQuery with dynamic form submission via Formspree.</li>
+                  <li>Features include user enrollment, personalized training programs, BMI and calorie calculators, and community class schedules.</li>
+                </ul>
+              </div>
+            </div>
 
-        <div class="resume-item">
-          <h4>Student Performance Prediction</h4>
-          <p>
-            <a href="https://predicting-student-performance-qctp.onrender.com/" target="_blank">Deployed Link</a>
-          </p>
-          <ul>
-            <li>Created a machine learning model to predict student performance based on historical data and patterns.</li>
-            <li>Features include data preprocessing, feature engineering, and evaluation using classification algorithms.</li>
-          </ul>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="resume-title">Technical Skills</h3>
+              <div class="resume-item">
+                <h4>Programming Languages</h4>
+                <p>C++, C, JavaScript, Python, Java</p>
+              </div>
+              <div class="resume-item">
+                <h4>Frontend Technologies</h4>
+                <p>JavaScript, ReactJS, Redux, HTML, CSS, Bootstrap, Tailwind CSS</p>
+              </div>
+              <div class="resume-item">
+                <h4>Other Tools and Technologies</h4>
+                <p>VS Code, GitHub, Vercel, Figma, Canva, Git, R, Matlab, Postman, Insomnia, Keil, SketchUp</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+      <!-- /Resume Section -->
 
-        <div class="resume-item">
-          <h4>HyperVerge - Wings of Wisdom </h4>
-          <p class="text-muted">Deep Learning</p>
-          <ul>
-            <li>Built an image classification model for 200 bird species using TensorFlow and Keras.</li>
-            <li>Achieved 75% validation accuracy using InceptionResNetV2 with transfer learning.</li>
-          </ul>
-        </div>
-
-        <!-- Technical Skills Section -->
-        <h3 class="resume-title mt-5">Technical Skills</h3>
-        <div class="resume-item">
-          <h4>Programming Languages</h4>
-          <p>Python, Java, C/C++, SQL</p>
-        </div>
-        <div class="resume-item">
-          <h4>Libraries & Frameworks</h4>
-          <p>NumPy, Pandas, scikit-learn, TensorFlow, PyTorch, OpenCV, CVZone</p>
-        </div>
-        <div class="resume-item">
-          <h4>Key Skills</h4>
-          <p>Feature Selection, Exploratory Data Analysis (EDA), Machine Learning, Deep Learning</p>
-        </div>
-        <div class="resume-item">
-          <h4>Tools</h4>
-          <p>Git, VS Code, Jupyter Notebook, Google Colab</p>
-        </div>
-        <div class="resume-item">
-          <h4>Frontend Technologies</h4>
-          <p>HTML, CSS, JavaScript, ReactJS, Redux</p>
-        </div>
-        <div class="resume-item">
-          <h4>Cloud Platforms</h4>
-          <p>AWS, Google Cloud Platform (GCP)</p>
-        </div>
-      </div>
-      <!-- End Right Column -->
-    </div>
-  </div>
-</section>
-<!-- /Resume Section -->
-
-      
       <!-- Services Section -->
       <section id="services" class="services section">
-        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>Projects</h2>
           <p>
             "An innovative web application designed to streamline user experience and enhance functionality."
           </p>
         </div>
-        <!-- End Section Title -->
-      
         <div class="container">
           <div class="row gy-4">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -458,12 +447,11 @@
                   <h3>Food-Delivery</h3>
                 </a>
                 <p>
-                  A food delivery website connects customers with local restaurants, allowing them to browse menus, place orders, and have food delivered to their doorstep. The website facilitates smooth transactions, order management, and provides a seamless user experience for both customers and restaurant owners.
+                  A food delivery website connecting customers with local restaurants for seamless ordering and delivery.
                 </p>
               </div>
             </div>
-            <!-- End Service Item -->
-      
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="service-item position-relative">
                 <div class="icon">
@@ -473,411 +461,57 @@
                   <h3>Gym Website</h3>
                 </a>
                 <p>
-                  A comprehensive gym website designed for my hometown gym. Features include user enrollment, personalized training programs, various workout plans, BMI and calorie calculators, and community classes with PDF workouts.
+                  A comprehensive gym website featuring user enrollment, training programs, BMI calculators, and community class schedules.
                 </p>
               </div>
             </div>
-            <!-- End Service Item -->
-      
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item position-relative">
-                <div class="icon">
-                  <i class="bi bi-smart"></i>
-                </div>
-                <a href="https://github.com/himanshudixit2002/AI-Powered-Smart-Classroom" class="stretched-link">
-                  <h3>Smart Classroom</h3>
-                </a>
-                <p>
-                  A smart classroom system integrating IoT devices to automate classroom operations and enhance learning efficiency. Features real-time monitoring and facial recognition for attendance tracking.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-      
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-item position-relative">
-                <div class="icon">
-                  <i class="bi bi-graph-up"></i>
-                </div>
-                <a href="https://predicting-student-performance-qctp.onrender.com/" class="stretched-link">
-                  <h3>Student Performance Prediction</h3>
-                </a>
-                <p>
-                  A data-driven approach to predict student performance using historical and behavioral data. This project aims to assist educators in identifying students needing additional support.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-      
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-              <div class="service-item position-relative">
-                <div class="icon">
-                  <i class="bi bi-image"></i>
-                </div>
-                <a href="https://colab.research.google.com/drive/1XnuUOrMO-SYPKVZcyFeNrurq3m7MflPy?usp=sharing" class="stretched-link">
-                  <h3>HyperVerge - Wings of Wisdom</h3>
-                </a>
-                <p>
-                  An advanced image classification project identifying 200 bird species using deep learning techniques. Built with TensorFlow, Keras, and transfer learning via InceptionResNetV2, achieving a validation accuracy of 75%.
-                </p>
-              </div>
-            </div>
-            <!-- End Service Item -->
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-item position-relative">
-            <div class="icon">
-              <i class="bi bi-image"></i>
-            </div>
-            <a href="himanshudixit.info" class="stretched-link">
-              <h3>Skintellect </h3>
-            </a>
-            <p>
-              Developed an end-to-end skin condition analysis system integrating YOLOv8 object detection (mAP 0.89) with
-              TensorFlow classification models. Built a Flask-based web interface featuring user authentication, real-time image analysis, and an appointment
-              booking system. Implemented a data pipeline processing 10k+ skincare product entries from CSV datasets using Pandas.
-              Optimized model inference speed by 40% through OpenCV optimizations and ONNX runtime integration.
-              Designed an SQLite database schema for user profiles and analysis history.
-            </p>
           </div>
         </div>
       </section>
       <!-- /Services Section -->
-    </div>
-  </div>
-</section>
-<!-- /Resume Section -->
+
       <!-- Stats Section -->
       <section id="stats" class="stats section accent-background">
-        <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in" />
-
-        <div
-          class="container position-relative"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
+        <img src="assets/img/stats-bg.jpg" alt="Stats Background" data-aos="fade-in" />
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
           <div class="row gy-4">
             <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="210"
-                  data-purecounter-duration="0"
-                  class="purecounter"
-                  >210</span
-                >
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="210" data-purecounter-duration="0" class="purecounter">210</span>
                 <p>Codes</p>
               </div>
             </div>
-            <!-- End Stats Item -->
-
             <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="11"
-                  data-purecounter-duration="0"
-                  class="purecounter"
-                  >11</span
-                >
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="0" class="purecounter">7</span>
                 <p>Projects</p>
               </div>
             </div>
-            <!-- End Stats Item -->
-
             <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="5"
-                  data-purecounter-duration="0"
-                  class="purecounter"
-                  >5</span
-                >
-                <p>certifications</p>
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0" class="purecounter">5</span>
+                <p>Certifications</p>
               </div>
             </div>
-            <!-- End Stats Item -->
-
             <div class="col-lg-3 col-md-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span
-                  data-purecounter-start="0"
-                  data-purecounter-end="2"
-                  data-purecounter-duration="0"
-                  class="purecounter"
-                  >2</span
-                >
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="0" class="purecounter">2</span>
                 <p>Client Projects</p>
               </div>
             </div>
-            <!-- End Stats Item -->
           </div>
         </div>
       </section>
       <!-- /Stats Section -->
 
-      
-          </div>
-        </div>
-      </section>
-      <!-- /Portfolio Section -->
-
-      <!-- Faq Section -->
-      <section id="faq" class="faq section">
-        <div class="container">
-          <div class="row gy-4">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="content px-xl-5">
-                <h3>
-                  <span>Asked </span><strong>Questions</strong>
-                </h3>
-                <!-- <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Duis aute irure dolor in reprehenderit
-                </p> -->
-              </div>
-            </div>
-
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-              <div class="faq-container">
-                <div class="faq-item faq-active">
-                  <h3>
-                    <span class="num">1.</span>
-                    <span>What is your current educational status?</span>
-                  </h3>
-                  <div class="faq-content">
-                    <p>
-                      I am currently studying Computer Science at Vellore Institute of Technology, where I have a cumulative grade point average of 8.04.
-
-                    </p>
-                  </div>
-                  <i class="faq-toggle bi bi-chevron-right"></i>
-                </div>
-                <!-- End Faq item-->
-
-                <div class="faq-item">
-                  <h3>
-                    <span class="num">2.</span>
-                    <span
-                      >What internships have you completed?</span
-                    >
-                  </h3>
-                  <div class="faq-content">
-                    <p>
-                      I did Externships with Amazon Web Services as an Amazon Cloud Practitioner and with Google Cloud as a Digital Leader.
-                    </p>
-                  </div>
-                  <i class="faq-toggle bi bi-chevron-right"></i>
-                </div>
-                <!-- End Faq item-->
-
-                <div class="faq-item">
-                  <h3>
-                    <span class="num">3.</span>
-                    <span
-                      >What are some key projects you have worked on?</span
-                    >
-                  </h3>
-                  <div class="faq-content">
-                    <p>
-                      Notable projects include a comprehensive gym website and practice projects like an Excel Clone and a To-Do List and a Portfolio website.
-                    </p>
-                  </div>
-                  <i class="faq-toggle bi bi-chevron-right"></i>
-                </div>
-                <!-- End Faq item-->
-
-                <div class="faq-item">
-                  <h3>
-                    <span class="num">4.</span>
-                    <span
-                      >What technical skills do you have?</span
-                    >
-                  </h3>
-                  <div class="faq-content">
-                    <p>
-                      I am proficient in C++, C, JavaScript, Python, Java, and have experience with frontend technologies such as ReactJS, Redux, HTML, CSS, Bootstrap, and Tailwind CSS.
-                    </p>
-                  </div>
-                  <i class="faq-toggle bi bi-chevron-right"></i>
-                </div>
-                <!-- End Faq item-->
-
-                <div class="faq-item">
-                  <h3>
-                    <span class="num">5.</span>
-                    <span
-                      >What extracurricular activities have you been involved in?</span
-                    >
-                  </h3>
-                  <div class="faq-content">
-                    <p>
-                      I have developed websites utilizing HTML, CSS, JavaScript, and jQuery, and possess experience with front-end development platforms such as WordPress and HubSpot.
-
-                    </p>
-                  </div>
-                  <i class="faq-toggle bi bi-chevron-right"></i>
-                </div>
-                <!-- End Faq item-->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /Faq Section -->
-
-      <!-- Testimonials Section -->
-      <section id="testimonials" class="testimonials section accent-background">
-        <img
-          src="assets/img/testimonials-bg.jpg"
-          class="testimonials-bg"
-          alt=""
-        />
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper init-swiper">
-            <script type="application/json" class="swiper-config">
-              {
-                "loop": true,
-                "speed": 600,
-                "autoplay": {
-                  "delay": 5000
-                },
-                "slidesPerView": "auto",
-                "pagination": {
-                  "el": ".swiper-pagination",
-                  "type": "bullets",
-                  "clickable": true
-                }
-              }
-            </script>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/testimonials-1.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Alan Kay</h3>
-                  <h4>Computer &amp; Scientist</h4>
-                  
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >The best way to predict the future is to invent it.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/testimonials-2.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Chris Pine</h3>
-                  <h4>Author of "Learn to Program"</h4>
-                  
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Programming isn't about what you know; it's about what you can figure out.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/testimonials-3.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Martin Fowler</h3>
-                  <h4>Software Developer and Author</h4>
-                  
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Any fool can write code that a computer can understand. Good programmers write code that humans can understand.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/testimonials-4.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Cory House</h3>
-                  <h4>Software Engineer and Author</h4>
-                
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >Code is like humor. When you have to explain it, it's bad.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/testimonials-5.jpg"
-                    class="testimonial-img"
-                    alt=""
-                  />
-                  <h3>Bjarne Stroustrup</h3>
-                  <h4>Creator of C++</h4>
-                  
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span
-                      >There are only two kinds of programming languages: those people always complain about and those nobody uses.</span
-                    >
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-              <!-- End testimonial item -->
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </section>
-      <!-- /Testimonials Section -->
-
       <!-- Contact Section -->
       <section id="contact" class="contact section">
-        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>Contact</h2>
           <p>
             "Should you require any additional information or wish to discuss potential opportunities, please feel free to contact me at your convenience."
           </p>
         </div>
-        <!-- End Section Title -->
-
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
             <div class="row gy-5">
@@ -887,12 +521,9 @@
                   <div>
                     <h3>Address</h3>
                     <p>Rath, Hamirpur UttarPradesh, 210431</p>
-                    
                   </div>
                 </div>
               </div>
-              <!-- End Info Item -->
-
               <div class="col-lg-4">
                 <div class="info-item d-flex align-items-center">
                   <i class="bi bi-telephone flex-shrink-0"></i>
@@ -904,23 +535,20 @@
                   </div>
                 </div>
               </div>
-              <!-- End Info Item -->
-
               <div class="col-lg-4">
                 <div class="info-item d-flex align-items-center">
                   <i class="bi bi-envelope flex-shrink-0"></i>
                   <div>
-                    <a href="mailto:himanshudixit@2406@gmail.com">
+                    <a href="mailto:himanshudixit2406@gmail.com">
                       <h3>Email Us</h3>
                       <p>himanshudixit2406@gmail.com</p>
                     </a>
                   </div>
                 </div>
               </div>
-              <!-- End Info Item -->
             </div>
           </div>
-
+          <!-- Contact Form -->
           <form
             action="https://formspree.io/f/xjkbwloo"
             method="post"
@@ -935,57 +563,53 @@
                   name="Name"
                   class="form-control"
                   placeholder="Your Name"
-                  required=""
+                  required
                 />
               </div>
-
               <div class="col-md-6">
                 <input
                   type="email"
-                  class="form-control"
                   name="Email"
+                  class="form-control"
                   placeholder="Your Email"
-                  required=""
+                  required
                 />
               </div>
-
               <div class="col-md-12">
                 <input
                   type="text"
-                  class="form-control"
                   name="Subject"
+                  class="form-control"
                   placeholder="Subject"
-                  required=""
+                  required
                 />
               </div>
-
               <div class="col-md-12">
                 <textarea
                   class="form-control"
                   name="Message"
                   rows="6"
                   placeholder="Message"
-                  required=""
+                  required
                 ></textarea>
               </div>
-
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
+                <div class="loading" style="display: none; color: #3498db;">Loading...</div>
+                <div class="error-message" style="color: red;"></div>
+                <div class="sent-message" style="color: green; display: none;">
                   Your message has been sent. Thank you!
                 </div>
-
                 <button type="submit">Send Message</button>
               </div>
             </div>
           </form>
-          <!-- End Contact Form -->
+          <!-- /Contact Form -->
         </div>
       </section>
       <!-- /Contact Section -->
     </main>
 
+    <!-- Footer -->
     <footer id="footer" class="footer accent-background">
       <div class="container">
         <div class="copyright text-center">
@@ -996,27 +620,29 @@
           </p>
         </div>
         <div class="social-links d-flex justify-content-center">
-          <a href="https://x.com/Dixit_himanshux?t=Qx4ZYfQIVem_ydVqN6LkMg&s=09" target="_blank"> <i class="bi bi-twitter-x"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61561418864275&mibextid=ZbWKwL" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/himanshu.dixitt?utm_source=qr&igsh=MXExMWI4ZzIxNDA4cw==" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="http://www.linkedin.com/in/himanshudixit2406" target="_blank"><i class="bi bi-linkedin"></i></a>
+          <a href="https://x.com/Dixit_himanshux?t=Qx4ZYfQIVem_ydVqN6LkMg&s=09" target="_blank">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61561418864275&mibextid=ZbWKwL" target="_blank">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/himanshu.dixitt?utm_source=qr&igsh=MXExMWI4ZzIxNDA4cw==" target="_blank">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="http://www.linkedin.com/in/himanshudixit2406" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          Designed by
-          <a href="">Himanshu Dixit</a>
+          Designed by <a href="">Himanshu Dixit</a>
         </div>
       </div>
     </footer>
 
     <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
 
     <!-- Preloader -->
     <div id="preloader"></div>
